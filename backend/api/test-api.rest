@@ -1,0 +1,17 @@
+# Get All Data Coffees
+# GET http://localhost:3000/api/coffees/
+
+# Get Data Coffee By Id
+# GET http://localhost:3000/api/coffees/1
+
+# Post New Data Coffee
+# POST http://localhost:3000/api/coffees/new-coffee
+# Content-Type: application/json
+
+# {
+#     "name": "Kopi ABC",
+#     "origin": "Indonesia",
+#     "type": "Indonesian",
+#     "flavor_profile": "delicious and steady",
+#     "price": 2500
+# }

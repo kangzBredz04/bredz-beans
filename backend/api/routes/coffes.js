@@ -55,4 +55,23 @@ router.get("/:id", (req, res) => {
   }
 });
 
+// buat data coffee
+router.post("/new-coffee", (req, res) => {
+  try {
+    //   menambahkan data baru kedalam array objek
+    coffees.push({
+      id: ++id,
+      ...req.body,
+    });
+    // mengirimkan pemberitahuan berhasil ditambahkan
+    res.status(200).json({
+      id: id,
+      ...req.body,
+    });
+  } catch (error) {
+    // mengirimkan pemberitahuan error
+    res.status(500).send(error);
+  }
+});
+
 export default router;
