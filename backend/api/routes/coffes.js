@@ -76,8 +76,17 @@ router.post("/new-coffee", (req, res) => {
 
 // update data coffee berdasarkan id
 router.put("/:id", (req, res) => {
-  const updateData = req.body;
-  const indexData = coffees.findIndex((c) => c.id === req.params.id);
+  const newData = req.body;
+  const index = coffees.findIndex((c) => c.id == req.params.id);
+  if (index !== -1) {
+    coffees[index] = {
+      id: req.params.id,
+      ...newData,
+    };
+    res.status(200).json({ message: "Successfully Update!" });
+  } else {
+    res.status(404).json({ message: "Data Coffee Not Found!" });
+  }
 });
 
 // get data coffee berdasarkan type

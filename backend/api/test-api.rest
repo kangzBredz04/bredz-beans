@@ -17,4 +17,16 @@
 # }
 
 # Get Data Coffee By Id
-GET http://localhost:3000/api/coffees/"Specialty"
+# GET http://localhost:3000/api/coffees/Specialty
+
+# Update/Put Data Coffee By Id
+PUT  http://localhost:3000/api/coffees/3
+Content-Type: application/json
+
+{
+    "name": "Kopi Luwak Mantap",
+    "origin": "Indonesia",
+    "type": "Specialty",
+    "flavor_profile": "Khas Indonesia",
+    "price": 100000
+}
