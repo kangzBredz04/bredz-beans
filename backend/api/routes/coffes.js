@@ -89,6 +89,17 @@ router.put("/:id", (req, res) => {
   }
 });
 
+// hapus data coffee berdasarkan id
+router.delete("/:id", (req, res) => {
+  const index = coffees.findIndex((c) => c.id == req.params.id);
+  if (index !== -1) {
+    const dataDelete = coffees.splice(index, 1);
+    res.status(200).json(dataDelete);
+  } else {
+    res.status(404).json({ message: "Data coffee not found" });
+  }
+});
+
 // get data coffee berdasarkan type
 router.get("/:type", (req, res) => {
   // get data type dari parameter
