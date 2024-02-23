@@ -74,4 +74,27 @@ router.post("/new-coffee", (req, res) => {
   }
 });
 
+// update data coffee berdasarkan id
+router.put("/:id", (req, res) => {
+  const updateData = req.body;
+  const indexData = coffees.findIndex((c) => c.id === req.params.id);
+});
+
+// get data coffee berdasarkan type
+router.get("/:type", (req, res) => {
+  // get data type dari parameter
+  const type = req.params.type;
+  // filter data berdasarkan type
+  const coffeeByCategory = coffees.filter(
+    (coffee) => coffee.type.toLowerCase() === type.toLowerCase()
+  );
+  if (coffeeByCategory.length > 0) {
+    res.status(200).json(coffeeByCategory);
+  } else {
+    res.status(404).json({
+      message: "Data Coffee Not Found!",
+    });
+  }
+});
+
 export default router;
